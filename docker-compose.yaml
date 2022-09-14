@@ -1,0 +1,89 @@
+version: '3'
+
+networks:
+  laravel:
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html:delegated
+    depends_on:
+      - php
+    networks:
+      - laravel
+  mysql:
+    image: mysql:5.7
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: job
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - laravel
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  php:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+      args:
+        - USER_ID=1000
+        - GROUP_ID=1000
+    volumes:
+      - .:/var/www/html:delegated
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    ports:
+      - "9000:9000"
+    networks:
+      - laravel
+  
+  artisan:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+      args:
+        - USER_ID=1000
+        - GROUP_ID=1000
+    volumes:
+      - .:/var/www/html:delegated
+    working_dir: /var/www/html
+    user: laravel
+    entrypoint: ['php', '/var/www/html/artisan']
+    networks:
+      - laravel
+  
+  composer:
+    build:
+      context: .
+      dockerfile: composer.dockerfile
+      args:       
+        - GROUP_ID=1000
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - php
+    user: laravel
+    networks:
+      - laravel
+    entrypoint: ['composer']
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=mysql
+    networks:
+      - laravel
+    depends_on:
+      - mysql
+    # entrypoint: echo 'stop'
