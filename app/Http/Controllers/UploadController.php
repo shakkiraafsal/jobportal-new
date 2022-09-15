@@ -12,7 +12,7 @@ class UploadController extends Controller
 {
     public function create()
     {
-        return view('admin.docupload');
+        return view('frontend.auth.docupload');
     }
 
     /**
@@ -33,23 +33,20 @@ class UploadController extends Controller
         if ($request->hasfile('files')) {
             foreach ($request->file('files') as $key => $file) {
 
-                $name =  $candidate->name  . '.' . $file->extension();
-                $path = 'public/files/' . $name;
+                $name =  uniqid()  . '.' . $file->extension();
+                $path = 'public/files/'.$candidate->name . $name;
                 Storage::put($path, file_get_contents($file));
 
 
                 $insert[$key]['store_path'] = $path;
                 $insert[$key]['user_id'] = Auth::user()->id;
-                $ref = 'app_id' . date('dmY') . '-' . Auth::user()->id;
+                $ref = 'JP-RID-' . date('dmY') . '-' . Auth::user()->id;
                 $insert[$key]['application_id'] = $ref;
             }
         }
         File::insert($insert);
         $file=File::where('user_id', Auth::user()->id)->firstOrFail();
                 
-         
-       
-
-        return redirect()->route('download')->with(['success' => 'Application submitted successfully with application no.' . ' ' .$ref]);
+         return redirect()->route('download')->with(['success' => 'Application submitted successfully with application no.' . ' ' .$ref]);
     }
 }

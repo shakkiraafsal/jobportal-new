@@ -447,6 +447,7 @@ color: white;
 .header-nav .nav-profile span {
   font-size: 14px;
   font-weight: 600;
+  color: aliceblue;
 }
 .header-nav .badge-number {
   position: absolute;

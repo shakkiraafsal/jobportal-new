@@ -71,42 +71,41 @@ class AuthenticationController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
     public function creates()
     {
         $date1 = Carbon::today();
-        $date2 = Carbon::createFromFormat('Y/m/d', '2022/09/25');
+        $date2 = Carbon::createFromFormat('Y/m/d', '2022/09/12');
         $result = $date1->lte($date2);
         if($result )
          {
-          return view('admin.payment');
+          return view('frontend.auth.personaldetails');
          }
         else
          {
-          return redirect()->route('home')->with(['error' => 'Last date for application expired']);
+          return redirect()->route('frontend.auth.login')->with(['error' => 'Last date for application expired']);
          }
     }
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-        'reference_no'=>'required',
-        ]);
-        if ($validator->fails())
-        {
-            return redirect()->back()->with(['error' => 'Enter Reference Number']);
-        }
-        $payment = new Payment();
-        $payment->user_id = Auth::user()->id;
-        $payment->reference_no = $request['reference_no'];
-        $payment->save();
-        return redirect()->route('Candidate.create');
-    }
+    // public function store(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //     'reference_no'=>'required',
+    //     ]);
+    //     if ($validator->fails())
+    //     {
+    //         return redirect()->back()->with(['error' => 'Enter Reference Number']);
+    //     }
+    //     $payment = new Payment();
+    //     $payment->user_id = Auth::user()->id;
+    //     $payment->reference_no = $request['reference_no'];
+    //     $payment->save();
+    //     return redirect()->route('Candidate.create');
+    // }
     public function getApplicationForm(Request $request)
     {
        
-           $candidate = Candidate::where('user_id', Auth::user()->id)->firstOrFail();
-        //  $candidate = $cand->;
+        $candidate = Candidate::where('user_id', Auth::user()->id)->firstOrFail();
         $academic = Academic::where('user_id', Auth::user()->id)->firstOrFail();
         $exp = Experience::where('user_id', Auth::user()->id)->firstOrFail();
         $age = Carbon::parse($candidate['age'])->age;
@@ -132,11 +131,13 @@ class AuthenticationController extends Controller
     }
      public function download()
     {
-        return view('admin.download_af');
+        return view('frontend.auth.download_af');
+        
     }
       public function downloads()
     {
          $file=File::where('user_id', Auth::user()->id)->firstOrFail();
-        return redirect()->route('home')->with(['success' => 'Application submitted successfully with application no.' . ' ' .$file->application_id]);
+
+         return redirect()->back()->with(['success' => 'Application submitted successfully with application no.' . ' ' .$file->application_id]);
     }
 }

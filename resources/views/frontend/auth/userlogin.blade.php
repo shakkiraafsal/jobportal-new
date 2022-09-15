@@ -7,7 +7,7 @@
       <div class="row">
 
         <!-- Left side columns -->
-        <div class="col-lg-8">
+        <div class="col-12">
           <div class="row">
 
             <!-- Sales Card -->
@@ -15,7 +15,7 @@
 
 
             <!-- Customers Card -->
-             <div class="col-lg-8" style="margin:0 auto;">
+             <div class="col-lg-4" style="margin:0 auto;">
 
           
               <div class="card mb-3" id="cardlogin">
@@ -93,6 +93,7 @@
               </div>
 
         </div>
+        
             <!-- Reports -->
            
 

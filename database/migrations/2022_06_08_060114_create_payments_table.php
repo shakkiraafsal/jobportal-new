@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
              $table->unsignedBigInteger('user_id')->index()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('reference_no');
+            $table->string('reference_no')->nullable();
             $table->timestamps();
         });
     }
