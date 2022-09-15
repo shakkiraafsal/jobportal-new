@@ -23,7 +23,7 @@ class AuthenticationController extends Controller
 
     public function getLogin()
     {
-        return view('admin.login');
+        return view('frontend.auth.userlogin');
     }
     public function postAdminLogin(Request $request)
     {
@@ -32,16 +32,17 @@ class AuthenticationController extends Controller
        if ($status &&  Auth::user()->candidate && Auth::user()->candidate->application_id)  {
            return redirect()->route('download');
        }
+       
        elseif($status){
           
-            return redirect()->route('Payment.create');
+            return redirect()->route('Candidate.create');
        
     }
      return redirect()->back()->with(['error' => 'Login Failed.Please check your Username Or Password']);
     }
     public function signUp()
     {
-        return view('admin.signup');
+        return view('frontend.auth.userregistration');
     }
     public function postSignUp(Request $request)
     {

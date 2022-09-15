@@ -9,14 +9,14 @@
 
 
                     @include('admin.includes.msgbox')
-                    <form action="{{ route('postSignUp') }}" method="POST">
-                        @csrf
-                        <div class="form-group mb-3">
-                            <input type="text" placeholder="Name" id="name" class="form-control" name="name" required
+                     <input type="text" placeholder="Name" id="name" class="form-control" name="name" required
                                 autofocus>
                             @if ($errors->has('name'))
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
-                            @endif
+                            @endif <form action="{{ route('postSignUp') }}" method="POST">
+                        @csrf
+                        <div class="form-group mb-3">
+                          
                         </div>
                         <div class="form-group mb-3">
                             <input type="text" placeholder="Email" id="email_address" class="form-control" name="email"

@@ -10,7 +10,7 @@ class personalController extends Controller
 {
     public function create()
     {
-        return view('admin.personaldetails');
+        return view('frontend.auth.personaldetails');
     }
 
     public function store(Request $request)

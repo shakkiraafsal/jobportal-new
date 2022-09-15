@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function getAdminHome()
     {
-        return view('admin.home');
+        return view('frontend.auth.login');
     }
     public function viewRegistration()
     {
