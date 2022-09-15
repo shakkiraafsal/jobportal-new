@@ -57,7 +57,7 @@
                 <div class="col-md-4">
                 <label for="inputName5" class="form-label">Gender</label>
                   
-                <select class="form-control" name="gender">
+                <select class="form-control" name="gender" value="{{old('gender')}}">
                     <option value="" disabled selected hidden>SELECT GENDER</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -72,7 +72,7 @@
             
               <div class="col-md-4">
                 <label class="form-label">Phone</label>
-                 <input type="text" class="form-control" name="phone" id="phone">
+                 <input type="text" class="form-control" name="phone" id="phone" value="{{old('phone')}}">
 
                   @if ($errors->has('phone'))
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Applying Post</label>
-                        <select class="form-control" id="post" name="post" placeholder="select">
+                        <select class="form-control" id="post" name="post" value="{{old('post')}}">
                              <option value="" disabled selected hidden>SELECT POST </option>
                             <option value="Assistant" >Assistant</option>
                             <option value="Computer Assistant/Data Entry Operator">Computer Assistant/Data Entry Operator</option>
@@ -102,7 +102,7 @@
                  
    <div class="col-md-12">
                         <label class="form-label">Address</label>
-                        <textarea class="form-control" name="address" id="address" ></textarea>
+                        <textarea class="form-control" name="address" id="address" value="{{old('address')}}"></textarea>
 
                          @if ($errors->has('address'))
                                 <span class="text-danger">{{ $errors->first('address') }}</span>

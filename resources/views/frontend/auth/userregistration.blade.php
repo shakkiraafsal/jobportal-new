@@ -39,7 +39,7 @@
                   <label for="inputName5" class="form-label">Full Name</label>
                   
                  <input type="text"  id="name" class="form-control" name="name" required
-                                autofocus>
+                                autofocus value="{{old('name')}}">
                             @if ($errors->has('name'))
                                 <span class="text-danger">{{ $errors->first('name') }}</span>
                             @endif
@@ -48,7 +48,7 @@
                   <label for="inputName5" class="form-label">Email</label>
                   
                   <input type="text" id="email_address" class="form-control" name="email"
-                                required autofocus>
+                                required autofocus value="{{old('email')}}">
                             @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif

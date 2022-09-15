@@ -66,8 +66,8 @@ use Illuminate\Support\Facades\Route;
    });
 Route::group([
     'namespace' => 'App\Http\Controllers',
-    'prefix' => 'admin',
-    'middleware' => 'auth'
+    //'prefix' => 'admin',
+   // 'middleware' => 'auth'
 ], function () {
     
 Route::get('logout', [

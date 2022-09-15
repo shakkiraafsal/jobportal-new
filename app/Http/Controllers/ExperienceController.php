@@ -10,7 +10,7 @@ class ExperienceController extends Controller
 {
     public function create()
     {
-        return view('admin.experience');
+        return view('frontend.auth.experience');
     }
 
     public function store(Request $request)

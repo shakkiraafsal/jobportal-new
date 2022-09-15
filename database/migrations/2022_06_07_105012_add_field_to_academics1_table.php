@@ -14,7 +14,7 @@ class AddFieldToAcademics1Table extends Migration
     public function up()
     {
         Schema::table('academics', function (Blueprint $table) {
-         $table->string('phdsubject');
+         $table->string('phdsubject')->nullable();
         });
     }
 

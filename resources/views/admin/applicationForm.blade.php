@@ -220,16 +220,7 @@
                    
 
                 </tr>
-                <tr>
-                    <td class="center" style="width: 25%">{{ $academic['phd'] }}</td>
-
-                    <td  class="center"style="width: 35% ">{{ $academic['phdsubject'] }}</td>
-                    <td class="center" style="width: 35% ">{{ $academic['phdboard'] }}</td>
-                    <td class="center" style="width: 15%">{{ $academic['phdyear'] }}</td>
-
-                    <td></td>
-
-                </tr>
+                
                 <tr>
                     <td class="center" style="width: 25%">{{ $academic['pg'] }}</td>
 
@@ -269,9 +260,9 @@
 
                 <tr>
                     <th class="center" style="width: 10%">Duration<br>(Years)</th>
-                    <th class="center" style="width: 50%">Employer Name/Address </th>
+                    <th class="center" style="width: 50%">Employer Name </th>
                     <th class="center" style="width: 20%"> Designation</th>
-                    <th class="center" style="width: 13%"> Specialisation</th>
+                 
 
 
                 </tr>
@@ -281,14 +272,14 @@
 
                     <td  class="center"style="width: 50% ">{{ $exp['empname'] }}</td>
                     <td class="center" style="width: 15% ">{{ $exp['desig'] }}</td>
-                    <td class="center" style="width: 20%">{{ $exp['specialisation'] }}</td>
+                   
                 </tr>
                 <tr>
                     <td class="center" style="width: 10%">{{ $exp['duration1'] }}</td>
 
                     <td  class="center"style="width: 50% ">{{ $exp['empname1'] }}</td>
                     <td class="center" style="width: 15% ">{{ $exp['desig1'] }}</td>
-                    <td class="center" style="width: 20%">{{ $exp['specialisation1'] }}</td>
+                   
 
                 </tr>
                 <tr>
@@ -296,7 +287,7 @@
 
                     <td class="center" style="width: 50% ">{{ $exp['empname2'] }}</td>
                     <td class="center" style="width: 15% ">{{ $exp['desig2'] }}</td>
-                    <td class="center" style="width: 20%">{{ $exp['specialisation2'] }}</td>
+                   
 
 
                 </tr>
@@ -305,8 +296,7 @@
 
                     <td  class="center"style="width: 50% ">{{ $exp['empname3'] }}</td>
                     <td class="center" style="width: 15% ">{{ $exp['desig3'] }}</td>
-                    <td class="center" style="width: 20%">{{ $exp['specialisation3'] }}</td>
-
+                   
 
                 </tr>
 

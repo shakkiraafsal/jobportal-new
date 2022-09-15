@@ -10,7 +10,7 @@ class AcademicController extends Controller
 {
     public function create()
     {
-        return view('admin.academicdetails');
+        return view('frontend.auth.academicdetails');
     }
 
     public function store(Request $request)
