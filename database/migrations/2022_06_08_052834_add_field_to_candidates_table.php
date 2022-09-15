@@ -15,7 +15,7 @@ class AddFieldToCandidatesTable extends Migration
     {
         Schema::table('candidates', function (Blueprint $table) {
                
-                $table->string('post');
+                $table->string('post')->nullable();
              
         });
     }

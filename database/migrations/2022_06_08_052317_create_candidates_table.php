@@ -16,12 +16,12 @@ class CreateCandidatesTable extends Migration
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
                
-                $table->string('name');
-                $table->date('age');
-                $table->string('gender',10);
-                $table->string('phone');
-                $table->string('address');
-                $table->string('email');
+                $table->string('name')->nullable();
+                $table->date('age')->nullable();
+                $table->string('gender')->nullable();
+                $table->string('phone')->nullable();
+                $table->string('address')->nullable();
+                $table->string('email')->nullable();
             $table->timestamps();
         });
     }

@@ -14,12 +14,12 @@ class AddFieldToAcademics2Table extends Migration
     public function up()
     {
         Schema::table('academics', function (Blueprint $table) {
-            $table->string('others');
-            $table->string('subject');
-            $table->string('institute');
-            $table->string('board');
-            $table->integer('year');
-            $table->float('percent');
+            $table->string('others')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('institute')->nullable();
+            $table->string('board')->nullable();
+            $table->integer('year')->nullable();
+            $table->float('percent')->nullable();
         });
     }
 

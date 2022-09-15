@@ -16,7 +16,7 @@ class AcademicController extends Controller
     public function store(Request $request)
     {        
         $request->validate([
-            'phd'=>'max:255',
+            
            // 'phdboard' => 'max:500',
           
             'pg' => 'max:255',

@@ -4,6 +4,8 @@
     "\\app",
     "\\app\\Http",
     "\\app\\Http\\Controllers",
+    "\\database",
+    "\\database\\migrations",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\admin",
@@ -11,6 +13,6 @@
     "\\resources\\views\\CE_and_Academic_Activites",
     "\\routes"
   ],
-  "SelectedNode": "\\app\\Http\\Controllers\\AuthenticationController.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\personalController.php",
   "PreviewInSolutionExplorer": false
 }
