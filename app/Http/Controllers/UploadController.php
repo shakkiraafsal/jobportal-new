@@ -37,7 +37,7 @@ class UploadController extends Controller
                 $path = 'public/files/'.$candidate->name . $name;
                 Storage::put($path, file_get_contents($file));
 
-
+                $insert[$key]['name'] = $name;
                 $insert[$key]['store_path'] = $path;
                 $insert[$key]['user_id'] = Auth::user()->id;
                 $ref = 'JP-RID-' . date('dmY') . '-' . Auth::user()->id;
